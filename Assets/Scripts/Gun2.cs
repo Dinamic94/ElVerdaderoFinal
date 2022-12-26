@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Gun2 : MonoBehaviour
 {
+    public Transform shootPoint; 
+    public Transform bulletPrefab; 
     public float range = 100f;
     public Camera fpsCam;
     
@@ -33,5 +35,10 @@ public class Gun2 : MonoBehaviour
                 Debug.Log("Has disparado a un enemy");
             }
         }       
+    }
+    
+    public void Shoot()
+    {
+        Instantiate(bulletPrefab , shootPoint.position, shootPoint.rotation);
     }
 }

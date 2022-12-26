@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
 {
     public float Speed = 10f;
     public int MonedasRecolectadas; 
-
+    public bool Shooting;
+    public Gun2 pistol; 
     Vector3 posInicial; 
 
     void Start()
@@ -24,6 +25,10 @@ public class Player : MonoBehaviour
         }
 
         YouWin();
+
+        Shooting = Input.GetMouseButtonDown(0);
+
+        ItemsControl();
     }
     
     void MovimientoJugador()
@@ -71,5 +76,14 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    public void ItemsControl()
+    {
+        if (pistol != null)
+        {
+            if (Shooting)
+            {
+                pistol.Shoot();
+            }
+        }
+    }
 }
